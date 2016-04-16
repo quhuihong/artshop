@@ -1,0 +1,13 @@
+Artshop system requirement.
+
+1. User management.
+   register/login/logout/profile
+
+2. User item management.
+   A user has one or many items.
+
+3. A item has multiple images.
+
+4. A customer can make orders of items. 
+
+

@@ -122,11 +122,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-#template
-TEMPLATES_DIRS = (
-    'artshop/shop/templates/shop'
-)
-
 AUTHENTICATION_BACKENDS = [
     'artshop.shop.service.ArtShopAuthBackend',
     'django.contrib.auth.backends.ModelBackend',

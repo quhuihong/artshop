@@ -14,8 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
+
 from artshop.shop import views
 
 urlpatterns = [
     url(r'^$', views.index, name='shop_index'),
+    url(r'^user$', views.user_list, name='user_list'),
+    url(r'^user/register$', views.user_register, name='user_register'),
+    url(r'^user/login$', views.user_login, name='user_login'),
+    url(r'^user/logout$', views.user_logout, name='user_logout'),
+    url(r'^user/(?P<user_id>\d+)$', views.user_detail, name='user_detail'),
+    url(r'^user/(?P<user_id>\d+)/update', views.user_update, name='user_update'),
+    url(r'^user/(?P<user_id>\d+)/delete', views.user_delete, name='user_delete'),
 ]

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户资料</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        button{
+            width:50px;
+            height:30px;
+            margin-top:10px;
+            color:#000;
+            line-height:30px;
+            text-align:center;
+            outline:none;
+            border:none;
+            background:#eee;
+
+        }
+    </style>
+</head>
+<body>
+<a href="{% url 'user_list' %}">查看所有用户</a><br/>
+username: {{ shop_user.username }}<br/>
+password: {{ shop_user.password }}<br/>
+email: {{ shop_user.email }}<br/>
+<a href="{% url 'user_update'  user_id=shop_user.id  %}">修改</a>
+<a href="{% url 'user_delete'  user_id=shop_user.id  %}">删除</a>
+</body>
+</html>

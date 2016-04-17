@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除用户信息</title>
+</head>
+<body>
+    <a href="{% url 'user_list' %}">查看所有用户</a>
+    <form action="" method="post">
+         {% csrf_token %}
+
+        <p>是否删除用户信息?</p>
+        <input name="user_delete" type="submit" value="是"/>
+        <a href="{% url 'user_detail'  user_id=user_id %}">否</a>
+    </form>
+</body>
+</html>

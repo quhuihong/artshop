@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册成功</title>
+</head>
+<body>
+    <h1>恭喜 <a href="{% url 'user_detail' user_id=shop_user.id %}">{{ shop_user.username }}</a>,注册成功!</h1>
+    <p>您是第{{ shop_user.id }}位用户</p>
+</body>
+</html>

@@ -120,3 +120,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+#template
+TEMPLATES_DIRS = (
+    'artshop/shop/templates/shop'
+)
+
+AUTHENTICATION_BACKENDS = [
+    'artshop.shop.service.ArtShopAuthBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+LOGIN_URL = '/shop/user/login'

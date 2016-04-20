@@ -1,4 +1,5 @@
 # coding:utf-8
+import json
 
 from django import forms
 from django.contrib import auth
@@ -61,6 +62,7 @@ def user_register(request):
     context['uf'] = uf
     return render_to_response('shop/user_register.html', context)
 
+
 @login_required
 def user_update(request, user_id):
     shop_user = ShopUser.objects.get(id=user_id)
@@ -108,6 +110,7 @@ def user_list(request):
 
     return render_to_response('shop/user.html', context)
 
+
 def user_login(request):
     context = RequestContext(request, {
     })
@@ -131,6 +134,21 @@ def user_login(request):
 
     return render_to_response('shop/user_login.html', context)
 
+
 def user_logout(request):
     auth.logout(request)
     return redirect('user_login')
+
+
+from django.core import serializers
+
+
+def api_user_list(request):
+    shop_user_list = ShopUser.objects.all()
+    shop_user_list_json = serializers.serialize("json", shop_user_list)
+    result = json.dumps(map(lambda o: o['fields'], json.loads(shop_user_list_json)), indent=4)
+    result = json.dumps({
+        'username': 'quhuihong',
+        'email': 'quhuihong@qq.com',
+    }, indent=4)
+    return HttpResponse(result, content_type="application/json")

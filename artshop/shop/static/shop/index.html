@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>hello world</title>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    	function helloworld(){
+			alert("hello world!")
+		}
+   		document.addEventListener('plusready', function(){
+   			alert("welcome to Html5plus!");
+   		});
+    </script>
+</head>
+<body>
+	This is a show “helloworld” default page,your can click this button <button>click me!</button> to show a "hello world" message!
+	<p>
+		The user list is as the following:
+	</p>
+	<table>
+		<thead><th>#</th><th>Name</th><th>email</th></thead>
+	</table>
+</body>
+<script>
+$(function() {
+	$.getJSON("/shop/api/user/list", function(result){
+        var table = $('table');
+        for (var index = 0; index < result.length; ++index) {
+            var html = '<tr>' +
+                            '<td>' + index + '</td>' +
+                            '<td>' + result[index].username + '</td>' +
+                            '<td>' + result[index].email + '</td>';
+            table.append(html);
+        }
+	})
+})
+</script>
+</html>

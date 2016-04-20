@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^user/(?P<user_id>\d+)$', views.user_detail, name='user_detail'),
     url(r'^user/(?P<user_id>\d+)/update', views.user_update, name='user_update'),
     url(r'^user/(?P<user_id>\d+)/delete', views.user_delete, name='user_delete'),
+    url(r'^api/user/list', views.api_user_list, name='api_user_list'),
 ]
